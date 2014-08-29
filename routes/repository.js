@@ -193,13 +193,21 @@ exports.package = {
       });
     }
 
-    package.saveTarfile(req.body);
-    package.save();
-    project.update(package);
-    project.save();
-    hook.emit('update:package', package);
+    package.saveTarfile(req.body, function(err) {
+      if(err) {
+        return abortify(res, {
+          code: 415,
+          message: "Can't build this package"
+        })
+      }
+      package.save();
+      project.update(package);
+      project.save();
+      hook.emit('update:package', package);
 
-    res.send(200, package);
+      res.send(200, package);
+    });
+    
   },
   delete: function(req, res) {
     var package = new Package(req.params);
