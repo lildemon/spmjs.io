@@ -2,6 +2,7 @@ var path = require('path');
 var fs = require('fs-extra');
 var _ = require('lodash');
 var moment = require('moment');
+var tar = require('tarball-extract');
 
 function Package(package) {
   if (!package.name || !package.version) {
@@ -36,10 +37,12 @@ Package.prototype = {
 
   saveTarfile: function(data) {
     this.filename = this.name + '-' + this.version + '.tar.gz';
-    fs.writeFileSync(
-      path.join(CONFIG.wwwroot, 'repository', this.name, this.version, this.filename),
-      data
-    );
+    var tarPath = path.join(CONFIG.wwwroot, 'repository', this.name, this.version, this.filename);
+    var extractPath = path.join(CONFIG.wwwroot, 'repository', this.name, this.version, this.name + '-' + this.version);
+    fs.writeFileSync(tarPath,data);
+    extractTarball(tarball.path, extractPath, function(err) {
+      console.log('extracted', err)
+    });
   },
 
   delete: function() {
