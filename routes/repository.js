@@ -195,6 +195,7 @@ exports.package = {
 
     package.saveTarfile(req.body, function(err) {
       if(err) {
+	console.log(err);
         return abortify(res, {
           code: 415,
           message: "Can't build this package"
