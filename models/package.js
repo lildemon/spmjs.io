@@ -48,7 +48,7 @@ Package.prototype = {
       var buildArgs = {
         cwd: path.resolve(extractPath),
         install: true,
-        dest: path.join(CONFIG.wwwroot, 'repository', self.name, self.version, self.name + '-' + self.version + '-packed')
+        dest: path.resolve(path.join(CONFIG.wwwroot, 'repository', self.name, self.version, self.name + '-' + self.version + '-packed'))
       }
 
       builder(buildArgs, function(err) {
