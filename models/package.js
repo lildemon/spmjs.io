@@ -40,7 +40,7 @@ Package.prototype = {
     var tarPath = path.join(CONFIG.wwwroot, 'repository', this.name, this.version, this.filename);
     var extractPath = path.join(CONFIG.wwwroot, 'repository', this.name, this.version, this.name + '-' + this.version);
     fs.writeFileSync(tarPath,data);
-    extractTarball(tarball.path, extractPath, function(err) {
+    tar.extractTarball(tarPath, extractPath, function(err) {
       console.log('extracted', err)
     });
   },
