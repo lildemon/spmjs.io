@@ -60,7 +60,7 @@ Package.prototype = {
         }
 
         var buildedPath = path.join(buildArgs.dest, self.name, self.version);
-        var saveBuildedTo = path.join(buildArgs.cwd, this.name + '-' + this.version + '-packed.tar.gz');
+        var saveBuildedTo = path.resolve(path.join(CONFIG.wwwroot, 'repository', self.name + '-' + self.version + '-packed.tar.gz'));
         tar.create(buildedPath, saveBuildedTo, function(err, target) {
             if(err) {
               self.delete();
@@ -70,7 +70,6 @@ Package.prototype = {
             cb();
         })
 
-        
       });
     });
   },
