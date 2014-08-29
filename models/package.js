@@ -2,7 +2,8 @@ var path = require('path');
 var fs = require('fs-extra');
 var _ = require('lodash');
 var moment = require('moment');
-var tar = require('tarball-extract');
+var tarExtractor = require('tarball-extract');
+var tar = require('../lib/tar');
 var builder = require('spm-builder').build;
 
 function Package(package) {
@@ -42,7 +43,7 @@ Package.prototype = {
     var tarPath = path.join(CONFIG.wwwroot, 'repository', this.name, this.version, this.filename);
     var extractPath = path.join(CONFIG.wwwroot, 'repository', this.name, this.version, this.name + '-' + this.version);
     fs.writeFileSync(tarPath,data);
-    tar.extractTarball(tarPath, extractPath, function(err) {
+    tarExtractor.extractTarball(tarPath, extractPath, function(err) {
       console.log('extracted', err)
 
       var buildArgs = {
@@ -57,7 +58,19 @@ Package.prototype = {
           self.delete();
           return cb(err);
         }
-        cb();
+
+        var buildedPath = path.join(buildArgs.dest, self.name, self.version);
+        var saveBuildedTo = path.join(buildArgs.cwd, this.name + '-' + this.version + '-packed.tar.gz');
+        tar.create(buildedPath, saveBuildedTo, function(err, target) {
+            if(err) {
+              self.delete();
+              return cb(err);
+            }
+
+            cb();
+        })
+
+        
       });
     });
   },
