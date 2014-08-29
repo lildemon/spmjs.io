@@ -50,6 +50,7 @@ Package.prototype = {
         install: true,
         dest: path.resolve(path.join(CONFIG.wwwroot, 'repository', self.name, self.version, self.name + '-' + self.version + '-packed'))
       }
+      console.log('Cwd is:' + extractPath);
 
       builder(buildArgs, function(err) {
         if(err) {
