@@ -46,7 +46,7 @@ Package.prototype = {
       console.log('extracted', err)
 
       var buildArgs = {
-        cwd: extractPath,
+        cwd: path.resolve(extractPath),
         install: true,
         dest: path.join(CONFIG.wwwroot, 'repository', self.name, self.version, self.name + '-' + self.version + '-packed')
       }
