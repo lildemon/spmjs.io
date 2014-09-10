@@ -9,7 +9,16 @@
     <link rel='stylesheet' href='http://static.alipayobjects.com/gallery/normalize/3.0.0/normalize.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/markdown.css' />
-    
+    <% if (GA) { %>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', '<%= GA %>', 'auto');
+      ga('send', 'pageview');
+    </script>
+    <% } %>
     <script charset="utf-8" id="seajsnode" src="http://static.alipayobjects.com/??seajs/seajs/2.2.0/sea.js,seajs/seajs-combo/1.0.1/seajs-combo.js,seajs/seajs-style/1.0.2/seajs-style.js"></script>
     <script>
     seajs.config({
@@ -56,7 +65,7 @@
                     <ul class="{{classPrefix}}-ctn" data-role="items">\
                         {{#each items}}\
                             <li data-role="item" class="{{../classPrefix}}-item" data-value="{{matchKey}}">\
-                                <a href="" class="ui-autocomplete-item-label">{{label}}</a>\
+                                <a href="/package/{{label}}" class="ui-autocomplete-item-label">{{label}}</a>\
                                 <div class="ui-autocomplete-item-description">{{description}}</div>\
                             </li>\
                         {{/each}}\
@@ -67,7 +76,7 @@
           .before('show', function() {
             this.set('width', $(this.get('trigger')).outerWidth(true));
           }).on('itemSelect', function(item) {
-            $(this.get('trigger')).attr('disabled', 'disabled');
+            this.set('submitOnEnter', false);
             location.href = '/package/' + item.label;
           });
         });
@@ -88,8 +97,8 @@
         </li>
         <li>
           <a target="_blank" href="https://github.com/spmjs/spm">
-            <i class="iconfont">&#xf0036;</i>
-            Cli</a>
+            <i class="iconfont">&#xe604;</i>
+            Github</a>
         </li>
         <% if (!anonymous) { %>
         <% if (user) { %>
@@ -108,7 +117,7 @@
         <% } else { %>
         <li>
           <a id="login" href="/login">
-            <i class="iconfont">&#xf01ca;</i>
+            <i class="iconfont">&#xe606;</i>
             <span>Sign in</span>
           </a>
         </li>
@@ -126,17 +135,15 @@
   </script>
   <section class="index-banner">
     <div class="container">
-      <h2>TMUED前端代码管理部署系统</h2>
-      <p>是基于SPM定制的模块化管理方案。集成了模块开发、依赖分析、最小初始包、
-                    支持less、scss、coffeescript等常见语言</p>
-      <p>图形操作界面，方便直观（客户端开发中）</p>                    
+      <h2>spm<span class="index-banner-fade">@3.x</span></h2>
+      <p>Brand new static package manager for browser.</p>
       <a class="button button-blue" href="/documentation">
         <i class="iconfont">&#xe602;</i>
-        模块开发文档
+        Getting Started
       </a>
       <a class="button button-red" href="/packages">
         <i class="iconfont">&#xf0174;</i>
-        浏览所有模块
+        Packages
       </a>
     </div>
   </section>

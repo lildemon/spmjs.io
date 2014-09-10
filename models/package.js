@@ -44,7 +44,10 @@ Package.prototype = {
     var extractPath = path.join(CONFIG.wwwroot, 'repository', this.name, this.version, this.name + '-' + this.version);
     fs.writeFileSync(tarPath,data);
     tarExtractor.extractTarball(tarPath, extractPath, function(err) {
-      console.log('extracted', err)
+      if(err) {
+        self.delete();
+        return cb(err);
+      }
 
       var buildArgs = {
         cwd: path.resolve(extractPath),

@@ -6,33 +6,36 @@
 </style>
 
 <div class="index-stat">
-  <i class="iconfont">&#x35bc;</i>当前托管模块数: <%= count %>
-  <i class="iconfont">&#x3439;</i>今天更新: <%= publishCount %>
-  <i class="iconfont">&#xe644;</i>总下载数: <%= todayCount %>
+  <i class="iconfont">&#x35bc;</i>Total Packages:
+  <span class="index-number"><%= count %></span>
+  <i class="iconfont">&#x3439;</i>Today publishes:
+  <span class="index-number"><%= publishCount %></span>
+  <i class="iconfont">&#xe644;</i>Today downloads:
+  <span class="index-number"><%= todayCount %></span>
 </div>
 
 <section class="index-box">
   <section class="index-list">
-    <h2>最近更新</h2>
+    <h2>Recently Updated</h2>
     <ul>
     <% recentlyUpdates.forEach(function(u) { %>
-      <li><a href="/package/<%= u.name %>"><%= u.name %></a> <%= u.fromNow %></li>
+      <li><a title="<%= u.name %>" href="/package/<%= u.name %>"><%= u.name %></a> <%= u.fromNow %></li>
     <% }) %>
     </ul>
   </section>
   <section class="index-list">
-    <h2>最近下载</h2>
+    <h2>Recently Download</h2>
     <ul>
     <% recentlyPackages.forEach(function(d) { %>
-      <li><a href="/package/<%= d.package.replace('@', '/') %>"><%= d.package %></a> <%= d.fromNow %></li>
+      <li><a title="<%= d.package %>" href="/package/<%= d.package.replace('@', '/') %>"><%= d.package %></a> <%= d.fromNow %></li>
     <% }) %>
     </ul>
   </section>
   <section class="index-list">
-    <h2>被依赖最多的模块</h2>
+    <h2>Most Depended Upon</h2>
     <ul>
     <% mostDependents.forEach(function(d) { %>
-      <li><a href="/package/<%= d.name %>"><%= d.name %></a> <%= d.count %> packages</li>
+      <li><a title="<%= d.name %>" href="/package/<%= d.name %>"><%= d.name %></a> <%= d.count %> packages</li>
     <% }) %>
     </ul>
   </section>
@@ -41,7 +44,7 @@
     <h2>Top submitters</h2>
     <ul>
     <% submitors.forEach(function(s) { %>
-      <li><a href="/account/<%= s.login %>"><%= s.login %></a> <%= s.count %> packages</li>
+      <li><a title="<%= s.login %>" href="/account/<%= s.login %>"><%= s.login %></a> <%= s.count %> packages</li>
     <% }) %>
     </ul>
   </section>
