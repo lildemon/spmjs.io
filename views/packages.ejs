@@ -1,8 +1,47 @@
 <% include header %>
-<p>Total Packages: <%= packages.length %></p>
-<ul class="all-packages">
-<% packages.forEach(function(p) { %>
-  <li><a title="<%= p %>" href="/package/<%= p %>"><%= p %></a></li>
-<% }) %>
-</ul>
+
+<!--container-->
+        <div class="ej_container">
+        	<h2 class="pack_name title2">Total Packages: <%= packages.length %>
+            	<span class="suoyin">
+                	<em>索引：</em>
+                    <a href="#">A</a>
+                    <a href="#">B</a>
+                    <a href="#">C</a>
+                    <a href="#">D</a>
+                    <a href="#">E</a>
+                    <a href="#">F</a>
+                    <a href="#">G</a>
+                    <a href="#" class="sy_disable">H</a>
+                    <a href="#">I</a>
+                    <a href="#">J</a>
+                    <a href="#">K</a>
+                    <a href="#">L</a>
+                    <a href="#">M</a>
+                    <a href="#">N</a>
+                    <a href="#">O</a>
+                    <a href="#">P</a>
+                    <a href="#">Q</a>
+                    <a href="#">R</a>
+                    <a href="#" class="sy_on">S</a>
+                    <a href="#">T</a>
+                    <a href="#">U</a>
+                    <a href="#">V</a>
+                    <a href="#">W</a>
+                    <a href="#">X</a>
+                    <a href="#">Y</a>
+                    <a href="#">Z</a>
+                </span>
+            </h2>
+            <div class="packagewrap">
+            	<ul class="package_col clearfix">
+                	<% packages.forEach(function(p) { %>
+					  <li><a title="<%= p %>" href="/package/<%= p %>"><%= p %></a></li>
+					<% }) %>
+                </ul>
+            </div>
+        </div>
+        <!--/container-->
+
+
 <% include footer %>

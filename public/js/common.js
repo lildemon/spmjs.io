@@ -10,6 +10,7 @@ $.fn.navAnim = function(opt) {
 
 	return this.each(function(idx, el) {
 		var $this = $(this)
+
 		var $icon = $this.find(options.iconClass)
 		var $text = $this.find(options.textClass)
 		var iconAnimFrom, textAnimFrom

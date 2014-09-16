@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    <title><%= title %></title>
+    <title>TMUED前端代码管理部署系统</title>
     <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="<%= title %>"/>
     <link rel='stylesheet' href='http://static.alipayobjects.com/gallery/normalize/3.0.0/normalize.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
@@ -23,7 +23,7 @@
     </script>
   </head>
   <body>
-    <!--header-->
+    <!--header <%= title %> -->
     <div class="header other_header">
       <div class="wrapper">
             <h1 class="logo"><a href="/">TMUED-模块库</a></h1>
@@ -129,4 +129,15 @@
         </div>
     </div>
     <!--/slogan-->
+
+<script>
+    $('.searchwrap').toggle(function(){
+      $(this).addClass('searchwrap_focus');
+    },
+      function(){
+        $(this).removeClass('searchwrap_focus');
+      }
+    )
+
+</script>    
   <section class="wrapper">
