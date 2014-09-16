@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<title>title</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="application/javascript" src="js/jquery-1.7.2.min.js"></script>
+<script src="js/common.js"></script>
+</head>
+
+<body>
+	<!--header-->
+    <div class="header">
+    	<div class="wrapper">
+            <h1 class="logo"><a href="#">TMUED-模块库</a></h1>
+            <div class="searchwrap">
+                <input type="text" class="normal_input" value="Search Packages" onfocus="if(this.value == 'Search Packages'){this.value = '';}" onblur="if(this.value == ''){this.value = 'Search Packages';}" />
+                <a href="#" class="icon_search"></a>
+            </div>
+            <ul class="top_nav clearfix">
+                <li><a href="#"><ins class="nav_icon1"></ins>Packages</a></li>
+                <li><a href="#"><ins class="nav_icon2"></ins>Documents</a></li>
+                <li><a href="#"><ins class="nav_icon3"></ins>Github</a></li>
+            </ul>
+        </div>
+    </div>
+    <!--/header-->
+    <!--slogan-->
+    <div class="sloganwrap">
+    	<div class="slogan">
+        	<div class="slogancon wrapper">
+                <p class="p1">TMUED前端代码管理部署系统</p>
+                <p class="p2">是基于SPM定制的模块化管理方案。集成了模块开发、依赖分析、最小初始包、</p>
+                <p class="p3">支持less、scss、coffeescript等常见语言图形操作界面，方便直观（客户端开发中）</p>
+                <div class="buttonwrap clearfix">
+                    <a href="#" class="view_sc"><ins></ins>模块开发手册</a>
+                    <a href="#" class="view_mode"><ins></ins>浏览所有模块</a>
+                </div>
+                <div class="tjwrap">
+                    <ins class="tjicon1"></ins>
+                    当前模块数：
+                    <em>20</em>
+                    <ins class="tjicon2"></ins>
+                    今日更新：
+                    <em>2</em>
+                    <ins class="tjicon3"></ins>
+                    总下载数：
+                    <em>15</em>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/slogan-->
+    <!--wrapper-->
+    <div class="wrapper">
+        <!--container-->
+        <div class="index_container">
+        	<ul class="modelcol clearfix">
+            	<li>
+                	<div class="com_mode com_model">
+                    	<a href="#"><ins class="m_icon"></ins><span class="m_txt">Recently Updated</span></a>
+                    </div>
+                </li>
+                <li class="on">
+                	<div class="com_mode com_mode2">
+                    	<a href="#"><ins class="m_icon"></ins><span class="m_txt">Recently Download</span></a>
+                    </div>
+                </li>
+                <li>
+                	<div class="com_mode com_mode3">
+                    	<a href="#"><ins class="m_icon"></ins><span class="m_txt">Most Depended Upon</span></a>
+                    </div>
+                </li>
+            </ul>
+            <div class="modelcon">
+                <ul class="modellist">
+                    <li class="clearfix"><a href="#">underscore@1.7.0</a><em>2 days ago</em></li>
+                    <li class="clearfix"><a href="#">handlebars-runtime@1.3.0</a><em>2 days ago</em></li>
+                    <li class="clearfix"><a href="#">templatable@0.10.0</a><em>2 days ago</em></li>
+                    <li class="clearfix"><a href="#">overlay@1.2.0</a><em>2 days ago</em></li>
+                    <li class="clearfix"><a href="#">handlebars@2.0.0</a><em>2 days ago</em></li>
+                    <li class="clearfix"><a href="#">iframe-shim@1.1.0 </a><em>2 days ago</em></li>
+                    <li class="clearfix"><a href="#">position@1.1.0 </a><em>2 days ago</em></li>
+                    <li class="clearfix"><a href="#">handlebars-runtime@2.0.0 </a><em>2 days ago</em></li>
+                    <li class="clearfix"><a href="#">jquery-calendar@1.0.0 </a><em>2 days ago</em></li>
+                    <li class="clearfix"><a href="#">import-style@1.0.0</a><em>2 days ago</em></li>
+                </ul>
+            </div>
+        </div>
+        <!--/container-->
+    </div>
+    <!--/wrapper-->
+    <!--footer-->
+    <div class="footer">
+    	<div class="wrapper clearfix">
+        	<div class="footer_left">
+            	<p class="p1"><a href="#">TMUED</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">TM</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">ND</a></p>
+                <p class="p2">Copyright © 2014 TM.UED All Rights Reserved.</p>
+            </div>
+            <div class="footer_right">
+            	<a href="#" class="a1"><ins></ins><span>加入收藏</span></a>
+                <a href="#" class="a2"><ins></ins><span>关注我们</span></a>
+            </div>
+        </div>
+    </div>
+    <!--/footer-->
+<script>
+	$('.modelcol li').navAnim()
+</script>
+</body>
+</html>

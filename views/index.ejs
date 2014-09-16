@@ -1,53 +1,100 @@
 <% include header %>
 <style>
-.index-banner {
+.sloganwrap {
   display: block;
 }
+.StatabCon { display: none; }
 </style>
 
-<div class="index-stat">
-  <i class="iconfont">&#x35bc;</i>Total Packages:
-  <span class="index-number"><%= count %></span>
-  <i class="iconfont">&#x3439;</i>Today publishes:
-  <span class="index-number"><%= publishCount %></span>
-  <i class="iconfont">&#xe644;</i>Today downloads:
-  <span class="index-number"><%= todayCount %></span>
+
+ <div class="tjwrap">
+    <ins class="tjicon1"></ins>
+    当前模块数：
+    <em><%= count %></em>
+    <ins class="tjicon2"></ins>
+    今日更新：
+    <em><%= publishCount %></em>
+    <ins class="tjicon3"></ins>
+    总下载数：
+    <em><%= todayCount %></em>
 </div>
 
-<section class="index-box">
-  <section class="index-list">
-    <h2>Recently Updated</h2>
-    <ul>
-    <% recentlyUpdates.forEach(function(u) { %>
-      <li><a title="<%= u.name %>" href="/package/<%= u.name %>"><%= u.name %></a> <%= u.fromNow %></li>
-    <% }) %>
-    </ul>
-  </section>
-  <section class="index-list">
-    <h2>Recently Download</h2>
-    <ul>
-    <% recentlyPackages.forEach(function(d) { %>
-      <li><a title="<%= d.package %>" href="/package/<%= d.package.replace('@', '/') %>"><%= d.package %></a> <%= d.fromNow %></li>
-    <% }) %>
-    </ul>
-  </section>
-  <section class="index-list">
-    <h2>Most Depended Upon</h2>
-    <ul>
-    <% mostDependents.forEach(function(d) { %>
-      <li><a title="<%= d.name %>" href="/package/<%= d.name %>"><%= d.name %></a> <%= d.count %> packages</li>
-    <% }) %>
-    </ul>
-  </section>
-  <% if (!anonymous) { %>
-  <section class="index-list">
-    <h2>Top submitters</h2>
-    <ul>
-    <% submitors.forEach(function(s) { %>
-      <li><a title="<%= s.login %>" href="/account/<%= s.login %>"><%= s.login %></a> <%= s.count %> packages</li>
-    <% }) %>
-    </ul>
-  </section>
-  <% } %>
-</section>
+
+
+<!--container-->
+        <div class="index_container">
+          <ul class="modelcol clearfix">
+              <li>
+                  <div class="com_mode com_model">
+                      <a href="#"><ins class="m_icon"></ins><span class="m_txt">最近更新</span></a>
+                    </div>
+                </li>
+                <li>
+                  <div class="com_mode com_mode2">
+                      <a href="#"><ins class="m_icon"></ins><span class="m_txt">最近下载</span></a>
+                    </div>
+                </li>
+                <li>
+                  <div class="com_mode com_mode3">
+                      <a href="#"><ins class="m_icon"></ins><span class="m_txt">最多依赖</span></a>
+                    </div>
+                </li>
+            </ul>
+            <div class="StatabCon modelcon">
+              <% if(!recentlyUpdates.length) { %>
+                <ul class="modellist">
+                    <li><a href="#">暂无更新</a></li>
+                </ul>
+              <% } %>
+              <ul class="modellist">
+                <% recentlyUpdates.forEach(function(u) { %>
+                  <li><a title="<%= u.name %>" href="/package/<%= u.name %>"><%= u.name %></a> <em><%= u.fromNow %></em></li>
+                <% }) %>
+              </ul>
+            </div>
+
+            <div class="StatabCon modelcon">
+                <% if(!recentlyPackages.length) { %>
+                  <ul class="modellist">
+                      <li><a href="#">暂无更新</a></li>
+                  </ul>
+                <% } %>
+                <ul class="modellist">
+                    <% recentlyPackages.forEach(function(d) { %>
+                      <li><a title="<%= d.package %>" href="/package/<%= d.package.replace('@', '/') %>"><%= d.package %></a> <em><%= d.fromNow %></em></li>
+                    <% }) %>
+                </ul>
+            </div>
+
+            <div class="StatabCon modelcon">
+                <% if(!mostDependents.length) { %>
+                  <ul class="modellist">
+                      <li><a href="#">暂无更新</a></li>
+                  </ul>
+                <% } %>
+                <ul class="modellist">
+                    <% mostDependents.forEach(function(d) { %>
+                      <li><a title="<%= d.name %>" href="/package/<%= d.name %>"><%= d.name %></a> <em><%= d.count %> packages</em></li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>
+
+        <!--/container-->
+
+<script>
+  $('.modelcol li').navAnim()
+
+  $('.header').removeClass('other_header')
+
+  var $ml = $('.modelcol li'), $cons = $('.StatabCon')
+  $ml.click(function(e) {
+    e.preventDefault()
+    var $this = $(this)
+    $ml.removeClass('on')
+    $this.addClass('on')
+    $cons.hide().eq($this.index()).show()
+  })
+
+</script>
 <% include footer %>

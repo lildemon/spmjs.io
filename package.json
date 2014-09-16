@@ -67,7 +67,9 @@
     "tempfile": "~1.0.0",
     "spm-builder": "*",
     "tar": "~1.0.1",
-    "fstream": "~1.0.2"
+    "fstream": "~1.0.2",
+    "fstream-ignore": "~1.0.1",
+    "inherits": "~2.0.1"
   },
   "devDependencies": {
     "forever": "~0.11.1"
