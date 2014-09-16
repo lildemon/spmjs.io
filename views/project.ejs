@@ -1,6 +1,6 @@
 <% include header %>
-<div class="markdown">
-  <h1 class="package-name">
+<div class="markdown ej_container">
+  <h1 class="package-name pack_name p_n_blue">
     <a href="/package/<%= project.name %>/"><%= project.name %></a>
     <img class="badge" src="/badge/<%= project.name %>">
   </h1>
@@ -24,7 +24,7 @@
     Latest version: <strong><%= project.latest.version %></strong>
     <span>~ <%= project.latest.tag %></span>
   </p>
-  <table class="meta">
+  <table class="meta version_t">
     <tr>
       <th width="20%">Versions</th>
       <td width="80%">
